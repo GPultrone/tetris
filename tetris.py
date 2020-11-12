@@ -1,5 +1,11 @@
 import pygame
 from ld import Ld
+from ls import Ls
+from t import T
+from linea import Linea
+from cubo import Cubo
+from ss import Ss
+from sd import Sd
 
 clock = pygame.time.Clock()
 
@@ -11,6 +17,7 @@ class Tetris:
         self.run = True
 
         self.ld = Ld(53, 50, win, self.wScreen, self.hScreen)
+        self.sd = Sd(353, 50, win, self.wScreen, self.hScreen)
         self.maincycle()
 
     def maincycle(self):
@@ -25,6 +32,7 @@ class Tetris:
                 pygame.draw.line(self.win, (255, 255, 255), (0, (self.hScreen / 20) * i),(self.wScreen, (self.hScreen / 20) * i))
 
             self.ld.draw()
+            self.sd.draw()
 
             for event in pygame.event.get():
                 if event.type is pygame.QUIT:
