@@ -8,12 +8,27 @@ class Linea(Sprite):
         self.height = 72
         self.linea = pygame.image.load('sprite/A.png')
 
-        self.scale()
-
     def scale(self):
         newWidth = (self.wScreen/10)
         newHeight = (self.hScreen/20)*4
         self.linea = pygame.transform.scale(self.linea, (round(newWidth), round(newHeight)))
 
+    def scaleProx(self):
+        newWidth = (self.wScreen / 30)
+        newHeight = (self.hScreen / 60) * 4
+        self.linea = pygame.transform.scale(self.linea, (round(newWidth), round(newHeight)))
+
     def draw(self):
         self.win.blit(self.linea, (self.x, self.y))
+
+    def moving(self, vel):
+        self.y += vel
+        self.draw()
+
+    def translation(self):
+        self.x = (self.wScreen/2) + (self.width/2)
+        self.draw()
+
+    def translationProx(self):
+        self.x = 50
+        self.draw()

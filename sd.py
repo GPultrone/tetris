@@ -8,12 +8,27 @@ class Sd(Sprite):
         self.height = 54
         self.sd = pygame.image.load('sprite/RO.png')
 
-        self.scale()
-
     def scale(self):
         newWidth = (self.wScreen/10)*2
         newHeight = (self.hScreen/20)*3
         self.sd = pygame.transform.scale(self.sd, (round(newWidth), round(newHeight)))
 
+    def scaleProx(self):
+        newWidth = (self.wScreen / 30) * 2
+        newHeight = (self.hScreen / 60) * 3
+        self.sd = pygame.transform.scale(self.sd, (round(newWidth), round(newHeight)))
+
     def draw(self):
         self.win.blit(self.sd, (self.x, self.y))
+
+    def moving(self, vel):
+        self.y += vel
+        self.draw()
+
+    def translation(self):
+        self.x = (self.wScreen/2) + (self.width/2)
+        self.draw()
+
+    def translationProx(self):
+        self.x = 50
+        self.draw()

@@ -1,4 +1,3 @@
-import pygame
 
 class Sprite:
     def __init__(self, x, y, win, wScreen, hScreen):
