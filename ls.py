@@ -7,28 +7,23 @@ class Ls(Sprite):
         self.width = 54
         self.height = 36
         self.ls = pygame.image.load('sprite/VE.png')
+        self.hitbox = pygame.rect.Rect(self.x, self.y, self.width, self.height)
 
     def scale(self):
-        newWidth = (self.wScreen/10)*3
-        newHeight = (self.hScreen/20)*2
-        self.ls = pygame.transform.scale(self.ls, (round(newWidth), round(newHeight)))
+        self.width = (self.wScreen/10)*3
+        self.height = (self.hScreen/20)*2
+        self.ls = pygame.transform.scale(self.ls, (round(self.width), round(self.height)))
+        self.upgradeHitbox()
 
     def scaleProx(self):
-        newWidth = (self.wScreen / 30) * 3
-        newHeight = (self.hScreen / 60) * 2
-        self.ls = pygame.transform.scale(self.ls, (round(newWidth), round(newHeight)))
+        self.width = (self.wScreen / 30) * 3
+        self.height = (self.hScreen / 60) * 2
+        self.ls = pygame.transform.scale(self.ls, (round(self.width), round(self.height)))
+        self.upgradeHitbox()
 
     def draw(self):
         self.win.blit(self.ls, (self.x, self.y))
 
-    def moving(self, vel):
-        self.y += vel
-        self.draw()
-
     def translation(self):
-        self.x = (self.wScreen/2) + (self.width/2)
-        self.draw()
-
-    def translationProx(self):
-        self.x = 50
-        self.draw()
+        self.x = (self.wScreen/2) - 50 + self.width - (self.width/2)
+        self.upgradeHitbox()
