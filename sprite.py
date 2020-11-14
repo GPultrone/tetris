@@ -11,18 +11,19 @@ class Sprite:
     def moving(self, vel):
         self.y += vel
         self.upgradeHitbox()
+        self.upgradePoint()
 
     def translationProx(self):
         self.x = 50
         self.upgradeHitbox()
+        self.upgradePoint()
 
     def sxShift(self, shift):
         self.x -= shift
         self.upgradeHitbox()
+        self.upgradePoint()
 
     def dxShift(self, shift):
         self.x += shift
         self.upgradeHitbox()
-
-    def upgradeHitbox(self):
-        self.hitbox = pygame.rect.Rect(self.x, self.y, self.width, self.height)
+        self.upgradePoint()
