@@ -82,7 +82,7 @@ class Tetris:
         # pygame.draw.rect(self.win, (128, 128, 128), pygame.rect.Rect(50, 100, self.wScreen, self.hScreen))
 
     def drawBlockGame(self):
-        if self.blockGame[self.indexBlockGame - 1].y >= self.hScreen + 100 - self.blockGame[self.indexBlockGame - 1].height:
+        if not (self.blockGame[self.indexBlockGame - 1].hitbox.collidepoint(self.hScreen+100)):
             rand = random.randint(0, 6)
             self.enumerate(rand)
             self.indexBlockGame += 1
