@@ -45,6 +45,8 @@ class Tetris:
             self.drawGamePanel()
             self.drawBlockGame()
 
+            pygame.draw.rect(self.win, (255, 0, 0), self.blockGame[self.indexBlockGame - 1].hitbox, 3)
+
             for event in pygame.event.get():
                 if event.type is pygame.QUIT:
                     self.run = False

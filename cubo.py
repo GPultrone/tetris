@@ -7,6 +7,8 @@ class Cubo(Sprite):
         self.width = 1700
         self.height = 1700
         self.color = 2
+        self.lastPosition = 3
+        self.newPosition = 0
         self.cubo_block1 = pygame.image.load('sprite/ProvaV.png')
         self.cubo_block2 = pygame.image.load('sprite/ProvaV.png')
         self.cubo_block3 = pygame.image.load('sprite/ProvaV.png')

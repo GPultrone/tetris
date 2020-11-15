@@ -27,3 +27,39 @@ class Sprite:
         self.x += shift
         self.upgradeHitbox()
         self.upgradePoint()
+
+    def clockwiseRotation(self):
+        if self.newPosition == 0:
+            self.lastPosition = 0
+            self.newPosition = 1
+            self.upgradePoint()
+        elif self.newPosition == 1:
+            self.lastPosition = 1
+            self.newPosition = 2
+            self.upgradePoint()
+        elif self.newPosition == 2:
+            self.lastPosition = 2
+            self.newPosition = 3
+            self.upgradePoint()
+        elif self.newPosition == 3:
+            self.lastPosition = 3
+            self.newPosition = 0
+            self.upgradePoint()
+
+    def reverseclockwiseRotation(self):
+        if self.newPosition == 0:
+            self.lastPosition = 0
+            self.newPosition = 3
+            self.upgradePoint()
+        elif self.newPosition == 1:
+            self.lastPosition = 1
+            self.newPosition = 0
+            self.upgradePoint()
+        elif self.newPosition == 2:
+            self.lastPosition = 2
+            self.newPosition = 1
+            self.upgradePoint()
+        elif self.newPosition == 3:
+            self.lastPosition = 3
+            self.newPosition = 2
+            self.upgradePoint()
